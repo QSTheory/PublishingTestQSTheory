@@ -9,3 +9,6 @@ def some_other_cool_test_func(x: int) -> int:
 
 def third_fun(x: int) -> int:
     return 4*x
+
+def fourth_fun(x: int) -> int:
+    return 5*x
