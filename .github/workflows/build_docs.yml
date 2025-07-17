@@ -29,6 +29,7 @@ jobs:
       with:
         pixi-version: v0.39.5
         cache: true
+    - run: git tag
     - run: pixi run -e doc doc_all_versions
         # Verify output path exists
     - run: ls -R docs/build/html || echo "Build output missing"
