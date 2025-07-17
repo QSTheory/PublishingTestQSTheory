@@ -24,8 +24,8 @@ for v in branches+versions:
     if v not in exclude_versions:
         version_entry = {
             "version": v,
-            # "url": f"https://QSTheory.github.io/PublishingTestQSTheory/{version}/"
-            "url": f"http://localhost:8000/{v}/"
+            "url": f"https://QSTheory.github.io/PublishingTestQSTheory/{version}/"
+            # "url": f"http://localhost:8000/{v}/"
         }
 
         if v in branches:
