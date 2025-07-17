@@ -12,3 +12,7 @@ def third_fun(x: int) -> int:
 
 def fourth_fun(x: int) -> int:
     return 5*x
+
+
+def and_another_fun():
+    print("hi")
