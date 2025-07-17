@@ -6,11 +6,10 @@ BUILD_DIR = "build/html/"
 os.system(f"mkdir -p {BUILD_DIR}")
 
 current_branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"], text=True).strip()
-# if current_branch == "main":
-#     branches = ["main"]
-# else:
-#     branches = [current_branch, "main"]
-branches = [current_branch] # replace with above after merging
+if current_branch == "main":
+    branches = ["main"]
+else:
+    branches = [current_branch, "main"]
 
 versions = sorted(
     subprocess.check_output(["git", "tag"], text=True).strip().split("\n"),
