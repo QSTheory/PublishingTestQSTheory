@@ -7,6 +7,7 @@ dependencies = [
     "array-api-compat>=1.11.0",
     "typing-extensions>=4.1",
     "hatch",
+    "twine"
 ]
 name = "PublishingTestQSTheory"
 requires-python = ">= 3.11"
@@ -72,7 +73,8 @@ platforms = ["linux-64", "linux-aarch64", "osx-arm64", "win-64"]
 publishingtestqstheory = { path = ".", editable = true }
 
 [tool.pixi.tasks]
-build_wheel = { cmd = ["hatch", "build"] }
+clean_dist_dir = { cmd = ["rm", "-rf", "dist/"] }
+build_wheel = { cmd = ["hatch", "build"], depends-on = ["clean_dist_dir"] }
 
 doc_local = { cmd = ["make", "local"], "cwd" = "docs" }
 doc_all_versions = { cmd = ["make", "all_versions"], "cwd" = "docs" }
