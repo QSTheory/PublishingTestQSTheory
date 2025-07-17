@@ -6,8 +6,6 @@ dependencies = [
     "numpy>=2.0",
     "array-api-compat>=1.11.0",
     "typing-extensions>=4.1",
-    "hatch",
-    "twine"
 ]
 name = "PublishingTestQSTheory"
 requires-python = ">= 3.11"
@@ -40,6 +38,11 @@ requires = ["hatchling", "hatch-vcs"]
 pandoc = ">=3.5,<4"
 
 [project.optional-dependencies]
+
+"build" = [
+    "hatch",
+    "twine",
+]
 
 "doc" = [
     "publishingtestqstheory",
