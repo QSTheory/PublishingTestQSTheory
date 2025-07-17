@@ -33,7 +33,7 @@ jobs:
         pixi-version: v0.39.5
         cache: true
     - name: Build Docs
-    - run: pixi run -e doc doc_all_versions
+      run: pixi run -e doc doc_all_versions
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
