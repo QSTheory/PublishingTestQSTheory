@@ -20,7 +20,7 @@ concurrency:
 
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -29,23 +29,17 @@ jobs:
       with:
         pixi-version: v0.39.5
         cache: true
-    - run: pixi run -e doc doc_all_versions
+    - name: Build Docs
+      run: |
+        pixi run -e doc doc_all_versions
+        # Verify output path exists
+        ls -R docs/build/html || echo "Build output missing"
 
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-
           path: 'docs/build/html'
       - name: Deploy to GitHub Pages
         id: deployment
