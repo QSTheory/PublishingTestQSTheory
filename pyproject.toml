@@ -1,0 +1,82 @@
+[project]
+authors = [
+    {name = "Stefan Seckmeyer", email = "seckmeyer@iqo.uni-hannvoer.de"}
+]
+dependencies = [
+    "numpy>=2.0",
+    "array-api-compat>=1.11.0",
+    "typing-extensions>=4.1",
+]
+name = "PublishingTestQSTheory"
+requires-python = ">= 3.11"
+dynamic = [
+    "version"
+]
+description = "A library"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    'Typing :: Typed',
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "hatch-vcs"]
+
+[tool.pixi.feature.doc.dependencies]
+# Pandoc is not on pypi, therefore add it as a conda-forge depdency.
+pandoc = ">=3.5,<4"
+
+[project.optional-dependencies]
+
+"doc" = [
+    "publishingtestqstheory",
+    "sphinx>=6.1",
+    "sphinx-book-theme>=1.0.1",
+    "sphinx-design",
+    "sphinx-copybutton",
+    "lxml_html_clean",
+    "nbsphinx",
+    "nbconvert>=7.16.5",
+    "nbsphinx-link",
+    "myst-nb",
+    "m2r2",
+    "matplotlib",
+    "ipython",
+    "bokeh",
+    "scipy",
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "_version.py"
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "osx-arm64", "win-64"]
+
+[tool.pixi.pypi-dependencies]
+publishingtestqstheory = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+build_wheel = { cmd = ["hatch", "build"] }
+
+doc_local = { cmd = ["make", "local"], "cwd" = "docs" }
+doc_all_versions = { cmd = ["make", "all_versions"], "cwd" = "docs" }
+doc_open = { cmd = ["open", "docs/build/html/local/index.html"], depends-on = ["doc_local"] }
+
+[tool.pixi.environments]
+# Environment to build the docs.
+doc = ["doc"]
