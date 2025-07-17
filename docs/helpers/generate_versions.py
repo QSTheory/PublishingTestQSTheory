@@ -15,6 +15,7 @@ print("----------------------------")
 print(current_branch)
 print(branches)
 
+
 versions = sorted(
     subprocess.check_output(["git", "tag"], text=True).strip().split("\n"),
     reverse=True  # Show latest version first
