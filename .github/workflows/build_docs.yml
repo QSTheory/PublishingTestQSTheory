@@ -32,10 +32,8 @@ jobs:
       with:
         pixi-version: v0.39.5
         cache: true
-    - run: git tag -l
+    - name: Build Docs
     - run: pixi run -e doc doc_all_versions
-        # Verify output path exists
-    - run: ls -R docs/build/html || echo "Build output missing"
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
