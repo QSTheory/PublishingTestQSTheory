@@ -11,10 +11,18 @@ if current_branch == "main":
 else:
     branches = [current_branch, "main"]
 
+print("----------------------------")
+print(current_branch)
+print(branches)
+
 versions = sorted(
     subprocess.check_output(["git", "tag"], text=True).strip().split("\n"),
     reverse=True  # Show latest version first
 )
+
+print("++++++++++++++++++++++++++++++++++")
+print(versions)
+
 
 exclude_versions = ["0.4a0"]
 
