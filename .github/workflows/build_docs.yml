@@ -29,18 +29,15 @@ jobs:
       with:
         pixi-version: v0.39.5
         cache: true
-    - name: Build Docs
-      run: |
-        pixi run -e doc doc_all_versions
+    - run: pixi run -e doc doc_all_versions
         # Verify output path exists
-        ls -R docs/build/html || echo "Build output missing"
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'docs/build/html'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - run: ls -R docs/build/html || echo "Build output missing"
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'docs/build/html'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
