@@ -32,7 +32,7 @@ jobs:
     - run: pixi run -e doc doc_all_versions
 
 
-    deploy:
+  deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
