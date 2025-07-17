@@ -86,3 +86,4 @@ doc_open = { cmd = ["open", "docs/build/html/local/index.html"], depends-on = ["
 [tool.pixi.environments]
 # Environment to build the docs.
 doc = ["doc"]
+build = ["build"]
