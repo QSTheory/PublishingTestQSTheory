@@ -6,6 +6,7 @@ dependencies = [
     "numpy>=2.0",
     "array-api-compat>=1.11.0",
     "typing-extensions>=4.1",
+    "hatch",
 ]
 name = "PublishingTestQSTheory"
 requires-python = ">= 3.11"
