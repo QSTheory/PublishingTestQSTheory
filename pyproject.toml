@@ -36,6 +36,12 @@ requires = ["hatchling", "hatch-vcs"]
 pandoc = ">=3.5,<4"
 
 [project.optional-dependencies]
+"jax" = [
+    "jax"
+]
+
+# These are dependencies which are for development only and are not packaged and published on pypi.
+[dependency-groups]
 
 "build" = [
     "hatch",
