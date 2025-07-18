@@ -4,6 +4,7 @@ authors = [
 ]
 dependencies = [
     "numpy",
+    "pip",
 ]
 name = "PublishingTestQSTheory"
 requires-python = ">= 3.11"
@@ -11,7 +12,7 @@ dynamic = [
     "version"
 ]
 description = "A library"
-readme = "README.md"
+readme = "README.rst"
 classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
@@ -37,7 +38,7 @@ pandoc = ">=3.5,<4"
 
 [project.optional-dependencies]
 "jax" = [
-    "jax"
+    "jax>=0.7"
 ]
 
 # These are dependencies which are for development only and are not packaged and published on pypi.
