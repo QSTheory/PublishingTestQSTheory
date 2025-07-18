@@ -3908,26 +3908,11 @@ packages:
   sha256: 4b41f3967fce3af57cc7e94b888626c18bf37a083e3651ca8feeb66d492fef35
 - pypi: ./
   name: publishingtestqstheory
-  version: 0.8.1.dev0+gfda1a01.d20250717
-  sha256: 3a8a2b817bb19923e5b256de917fdf392844b3cc6ad9ea8ba3d7bbb4c7e6b4da
+  version: 0.10.0
+  sha256: 0c23a1a3adf26d8d45e90bd69c7d2eeb20ff5c3f121b6d76dfe03e5f3ea98abd
   requires_dist:
   - numpy
-  - hatch ; extra == 'build'
-  - twine ; extra == 'build'
-  - bokeh ; extra == 'doc'
-  - ipython ; extra == 'doc'
-  - lxml-html-clean ; extra == 'doc'
-  - m2r2 ; extra == 'doc'
-  - matplotlib ; extra == 'doc'
-  - myst-nb ; extra == 'doc'
-  - nbconvert>=7.16.5 ; extra == 'doc'
-  - nbsphinx ; extra == 'doc'
-  - nbsphinx-link ; extra == 'doc'
-  - scipy ; extra == 'doc'
-  - sphinx-book-theme>=1.0.1 ; extra == 'doc'
-  - sphinx-copybutton ; extra == 'doc'
-  - sphinx-design ; extra == 'doc'
-  - sphinx>=6.1 ; extra == 'doc'
+  - jax ; extra == 'jax'
   requires_python: '>=3.11'
   editable: true
 - pypi: https://files.pythonhosted.org/packages/8e/37/efad0257dc6e593a18957422533ff0f87ede7c9c6ea010a2177d738fb82f/pure_eval-0.2.3-py3-none-any.whl
