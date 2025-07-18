@@ -12,7 +12,7 @@ dynamic = [
     "version"
 ]
 description = "A library"
-readme = "README.rst"
+readme = "README.rst" # Generated during build for pypi compatibility.
 classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
@@ -81,8 +81,10 @@ platforms = ["linux-64", "linux-aarch64", "osx-arm64", "win-64"]
 publishingtestqstheory = { path = ".", editable = true }
 
 [tool.pixi.tasks]
+build_readme_rst = { cmd = ["pandoc", "README.md",  "-t", "rst", "-o", "README.rst"] }
 clean_dist_dir = { cmd = ["rm", "-rf", "dist/"] }
-build_wheel = { cmd = ["hatch", "build"], depends-on = ["clean_dist_dir"] }
+run_hatch = { cmd = ["hatch", "build"], depends-on = ["clean_dist_dir", "build_readme_rst"] }
+build_wheel = {  cmd = ["rm", "README.rst"], depends-on = ["run_hatch"] }
 
 doc_local = { cmd = ["make", "local"], "cwd" = "docs" }
 doc_all_versions = { cmd = ["make", "all_versions"], "cwd" = "docs" }
@@ -92,3 +94,4 @@ doc_open = { cmd = ["open", "docs/build/html/local/index.html"], depends-on = ["
 # Environment to build the docs.
 doc = ["doc"]
 build = ["build"]
+dev = ["build", "doc"]
